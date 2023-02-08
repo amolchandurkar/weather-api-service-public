@@ -1,0 +1,11 @@
+
+weather-api.api.forecast.url: "https://api.openweathermap.org/data/2.5/forecast?q={city}&appid={apiKey}&cnt={numberOfDays}"
+weather-api.api.forecast.numberofdays: 5
+#example - https://api.openweathermap.org/data/2.5/forecast?q=pune&appid=apikey&cnt=3
+weather-api.api.key: apikey
+
+spring:
+  jackson:
+    serialization-inclusion: NON_EMPTY
+    serialization:
+      write-empty-json-arrays: false
