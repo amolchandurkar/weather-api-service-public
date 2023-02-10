@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 @Validated
 public class WeatherAPIForcastController {
-    private WeatherAPIService weatherAPIService;
+  private WeatherAPIService weatherAPIService;
 
-    public WeatherAPIForcastController(WeatherAPIService weatherAPIService){
-        this.weatherAPIService = weatherAPIService;
-    }
+  public WeatherAPIForcastController(WeatherAPIService weatherAPIService) {
+    this.weatherAPIService = weatherAPIService;
+  }
 
-    @GetMapping(
-            value={"/api/weather-forecast/{city}"},
-            produces = {"application/json"}
-    )
-    public ResponseEntity<ForecastResponse> getWeatherForecast(@PathVariable("city") @NonNull String city){
-            ForecastResponse forecastResponse = weatherAPIService.getWeatherForecast(city);
-            return ResponseEntity.status(forecastResponse.getResponseCode()).body(forecastResponse);
-    }
+  @GetMapping(
+      value = {"/api/weather-forecast/{city}"},
+      produces = {"application/json"})
+  public ResponseEntity<ForecastResponse> getWeatherForecast(
+      @PathVariable("city") @NonNull String city) {
+    ForecastResponse forecastResponse = weatherAPIService.getWeatherForecast(city);
+    return ResponseEntity.status(forecastResponse.getResponseCode()).body(forecastResponse);
+  }
 }

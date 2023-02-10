@@ -3,72 +3,89 @@ package com.aac.learning.weather.weatherapispringboot.rest.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Main {
-    @JsonProperty("temp")
-    private double temperature;
-    @JsonProperty("feels_like")
-    private double feelsLikeTemperature;
-    @JsonProperty("temp_min")
-    private double minimumTemperature;
-    @JsonProperty("temp_max")
-    private double maximumTemperature;
-    @JsonProperty("pressure")
-    private int pressure;
-    @JsonProperty("sea_level")
-    private int seaLevel;
-    @JsonProperty("grnd_level")
-    private int groundLevel;
-    @JsonProperty("humidity")
-    private int humidity;
-    @JsonProperty("temp_kf")
-    private int temperatureKF;
+  @JsonProperty("temp")
+  private double temperature;
 
-    public Main(double temperature, double feelsLikeTemperature, double minimumTemperature, double maximumTemperature, int pressure, int seaLevel, int groundLevel, int humidity, int temperatureKF) {
-        this.temperature = temperature;
-        this.feelsLikeTemperature = feelsLikeTemperature;
-        this.minimumTemperature = minimumTemperature;
-        this.maximumTemperature = maximumTemperature;
-        this.pressure = pressure;
-        this.seaLevel = seaLevel;
-        this.groundLevel = groundLevel;
-        this.humidity = humidity;
-        this.temperatureKF = temperatureKF;
-    }
+  @JsonProperty("feels_like")
+  private double feelsLikeTemperature;
 
-    public Main(){}
+  @JsonProperty("temp_min")
+  private double minimumTemperature;
 
-    public double getTemperature() {
-        return temperature;
-    }
+  @JsonProperty("temp_max")
+  private double maximumTemperature;
 
-    public double getFeelsLikeTemperature() {
-        return feelsLikeTemperature;
-    }
+  @JsonProperty("pressure")
+  private int pressure;
 
-    public double getMinimumTemperature() {
-        return minimumTemperature;
-    }
+  @JsonProperty("sea_level")
+  private int seaLevel;
 
-    public double getMaximumTemperature() {
-        return maximumTemperature;
-    }
+  @JsonProperty("grnd_level")
+  private int groundLevel;
 
-    public int getPressure() {
-        return pressure;
-    }
+  @JsonProperty("humidity")
+  private int humidity;
 
-    public int getSeaLevel() {
-        return seaLevel;
-    }
+  @JsonProperty("temp_kf")
+  private int temperatureKF;
 
-    public int getGroundLevel() {
-        return groundLevel;
-    }
+  public Main(
+      double temperature,
+      double feelsLikeTemperature,
+      double minimumTemperature,
+      double maximumTemperature,
+      int pressure,
+      int seaLevel,
+      int groundLevel,
+      int humidity,
+      int temperatureKF) {
+    this.temperature = temperature;
+    this.feelsLikeTemperature = feelsLikeTemperature;
+    this.minimumTemperature = minimumTemperature;
+    this.maximumTemperature = maximumTemperature;
+    this.pressure = pressure;
+    this.seaLevel = seaLevel;
+    this.groundLevel = groundLevel;
+    this.humidity = humidity;
+    this.temperatureKF = temperatureKF;
+  }
 
-    public int getHumidity() {
-        return humidity;
-    }
+  public Main() {}
 
-    public int getTemperatureKF() {
-        return temperatureKF;
-    }
+  public double getTemperature() {
+    return temperature;
+  }
+
+  public double getFeelsLikeTemperature() {
+    return feelsLikeTemperature;
+  }
+
+  public double getMinimumTemperature() {
+    return minimumTemperature;
+  }
+
+  public double getMaximumTemperature() {
+    return maximumTemperature;
+  }
+
+  public int getPressure() {
+    return pressure;
+  }
+
+  public int getSeaLevel() {
+    return seaLevel;
+  }
+
+  public int getGroundLevel() {
+    return groundLevel;
+  }
+
+  public int getHumidity() {
+    return humidity;
+  }
+
+  public int getTemperatureKF() {
+    return temperatureKF;
+  }
 }

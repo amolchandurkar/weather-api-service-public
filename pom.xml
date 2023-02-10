@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.aac.learning.weather</groupId>
-	<artifactId>weather-api-service</artifactId>
+	<artifactId>weather-api-service-public</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>weather-api-service</name>
@@ -19,6 +19,8 @@
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
 		<spring-boot.version>2.7.8</spring-boot.version>
 		<coveo-formatter-maven-plugin.version>2.11</coveo-formatter-maven-plugin.version>
+		<dependency-check-maven.version>8.0.2</dependency-check-maven.version>
+		<fmt-maven-plugin.version>2.19</fmt-maven-plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -43,6 +45,8 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--Plugins-->
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -53,11 +57,57 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>com.spotify.fmt</groupId>
+				<artifactId>fmt-maven-plugin</artifactId>
+				<version>${fmt-maven-plugin.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<version>${dependency-check-maven.version}</version>
+				<configuration>
+					<ossindexAnalyzerEnabled>false</ossindexAnalyzerEnabled>
+					<retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
+					<nuspecAnalyzerEnabled>false</nuspecAnalyzerEnabled>
+					<assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<!-- By default the plugin's "check" goal is bound to Maven's verify phase: $ mvn verify-->
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify.fmt</groupId>
+				<artifactId>fmt-maven-plugin</artifactId>
+				<version>${fmt-maven-plugin.version}</version>
+				<configuration>
+					<verbose>true</verbose>
+					<filesNamePattern>.*\.java</filesNamePattern>
+					<skip>false</skip>
+					<skipSourceDirectory>false</skipSourceDirectory>
+					<skipTestSourceDirectory>false</skipTestSourceDirectory>
+					<skipSortingImports>false</skipSortingImports>
+					<style>google</style>
+				</configuration>
+
+				<executions>
+					<execution>
+						<goals>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

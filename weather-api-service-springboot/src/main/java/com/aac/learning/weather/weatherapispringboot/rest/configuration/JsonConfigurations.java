@@ -7,12 +7,12 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 @Configuration
 public class JsonConfigurations {
-    @Bean
-    public Jackson2ObjectMapperBuilder objectMapperBuilder() {
-        Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
-        builder.serializationInclusion(JsonInclude.Include.NON_NULL);
-        builder.serializationInclusion(JsonInclude.Include.NON_EMPTY);
-        builder.failOnUnknownProperties(false);
-        return builder;
-    }
+  @Bean
+  public Jackson2ObjectMapperBuilder objectMapperBuilder() {
+    Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
+    builder.serializationInclusion(JsonInclude.Include.NON_NULL);
+    builder.serializationInclusion(JsonInclude.Include.NON_EMPTY);
+    builder.failOnUnknownProperties(false);
+    return builder;
+  }
 }
